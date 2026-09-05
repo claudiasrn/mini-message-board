@@ -22,4 +22,9 @@ router.post("/new", (req, res) => {
 	res.redirect("/");
 });
 
+router.get("/message/:id", (req, res) => {
+	const index = Number(req.params.id);
+	res.render("message", { message: messages[index], id: index });
+});
+
 module.exports = router;

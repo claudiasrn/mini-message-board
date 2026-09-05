@@ -9,11 +9,12 @@
     <h1>Mini Messageboard</h1>
     <a href="/new">Add a new message</a>
     <ul>
-        <% messages.forEach((message) => { %>
+        <% messages.forEach((message, index) => { %>
             <li>
                 <p><%= message.text %></p>
                 <p><%= message.user %></p>
                 <p><%= message.added %></p>
+                <a href= "/message/<%= index %>">Open</a>
             </li>
         <% }); %>
     </ul>
