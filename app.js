@@ -11,6 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
 
-app.listen(8080, () => {
-	console.log("Server running on port 8080");
+app.listen(process.env.PORT || 8080, () => {
+	console.log("Server running");
 });
