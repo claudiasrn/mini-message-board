@@ -7,11 +7,18 @@
 	</head>
 	<body>
 		<h1>New message</h1>
+		<% if (typeof errors !== 'undefined') { %>
+		<ul>
+			<% errors.forEach((error) => { %>
+			<li><%= error.msg %></li>
+			<% }); %>
+		</ul>
+		<% } %>
 		<form method="POST" action="/new">
 			<label for="name">Your name:</label>
-			<input type="text" id="name" name="name" />
+			<input type="text" id="name" name="name" value="<%= typeof name !== 'undefined' ? name : '' %>">
 			<label for="message">Message:</label>
-			<textarea id="message" name="messageText"></textarea>
+			<textarea id="message" name="messageText"><%= typeof messageText !== 'undefined' ? messageText : '' %></textarea>
 			<button type="submit">Send message</button>
 		</form>
 	</body>
